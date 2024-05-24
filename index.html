@@ -9,60 +9,38 @@
 
 <body>
     <script src="main.js"></script>
-    <header>
-
-        <h1 class="titulo">Hotel Chocolat</h1>
-        <p></p>
-
-    </header>
-    <main>   
-        <section>
-            
-            <p>El Gran Hotel Argentino está situado a pocos metros de la avenida 9 de Julio y a 300 metros del Obelisco, y ofrece habitaciones cómodas y fácil acceso al transporte público de Buenos Aires. Hay WiFi gratuita. La plaza de Mayo y la Casa Rosada se hallan   a   500 metros. 
+    <link rel="stylesheet" href="styles.css">
+       
+        <div id="app">
+            <h1 id="title">Hotel Chocolat</h1>
+            <p id="descripcion">El Hotel Chocolat está situado a pocos metros de la avenida 9 de Julio y a 300 metros del Obelisco, y ofrece habitaciones cómodas y fácil acceso al transporte público de Buenos Aires. Hay WiFi gratuita. La plaza de Mayo y la Casa Rosada se hallan   a   500 metros. 
             Las encantadoras habitaciones del Gran Hotel Argentino cuentan con instalaciones modernas, como aire acondicionado, TV por cable y caja fuerte. Algunas habitaciones tienen vistas de la ciudad.
             Se proporciona servicio de habitaciones las 24 horas. El establecimiento puede organizar un servicio de enlace con el aeropuerto.
             El Gran Hotel Argentino se encuentra a 500 metros de la calle peatonal Florida y a 800 metros del teatro Colón. El aeropuerto Jorge Newbery queda a 6,4 km.
             </p>
-            <p>Planes para fin de semana :</p>
+        </div>
 
-            <div>
-                <p>Habitacion Nomral : $usd 25 </p> 
-                <p>Habitacion Premium : $usd 40</p>
-                <p>Habitacion Exclusiva : $usd 75</p>
-                <p>Plan Finlandia (4 dias y 3 noches) : $usd 160</p>
-                <p>Plan Plus Week (7 dias y 6 noches) : $usd 600</p>
-            </div>
+        <div id="planes"></div>
 
-
-
-        </section>
+        <div id="info">
+            <p>Complete el formulario para notificarnos la reserva solicitada.</p>
+            
+            <form id="formulario" action="" name="formulario" method="get">
+                <label for="nombre">Nombre y Apellido:</label>
+                <input type="text" name="nombre" id="nombre" maxlength="30" placeholder="Nombre y Apellido" required>
         
+                <label>Sexo:</label>
+                <input type="radio" name="sexo" id="hombre" value="hombre" required> 
+                <label for="hombre">Hombre</label>
+                <input type="radio" name="sexo" id="mujer" value="mujer" required> 
+                <label for="mujer">Mujer</label>
         
-
-        <section>
-
-            <p class="text-contacto"> Complete el formulario para notificarnos la recerva solicitada.</p>
+                <input type="checkbox" name="terminos" id="terminos" required>
+                <label for="terminos">Acepto los Términos y Condiciones</label>
         
-            <form action="" name="formulario" method="get">
-            <input type="text" name="nombre" id="hombre" maxlength="30" placeholder="Nombre y Apellido" required>
-
-            <input type="radio" name="sexo" id="hombre" value="hombre" required> Hombre
-            <input type="radio" name="sexo" id="mujer" value="mujer" required> Mujer
-
-            <input type="checkbox" name="terminos" id="terminos" required> Terminos y Condiciones
-
-            <input type="submit" name="button" id="button" value="Enviar" >
-
-        </form>
-
-        </section>
-        
-
-    </main>
-
-    <footer>
-            <p class="text">Hotel Chocolat 2024 todos los derechos reservados. </p>
-    </footer>
+                <input type="submit" name="button" id="button" value="Enviar">
+            </form>
+        </div>
      
 
 

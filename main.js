@@ -1,48 +1,39 @@
-const condicion = true
-if (condicion) alert("Bienvenido Al hotel Chocolat");
 
-function obtenerDatos(){
-  const dato = prompt("Nombre y Apellido");
 
-  console.log(dato);
+const app = document.getElementById("planes")
+
+const planes = [
+    {nombre: "habitacion" , tipo: "normal" , precio: "$USD 25" },
+    {nombre: "habitacion" , tipo: "premium" , precio: "$USD 40" },
+    {nombre: "habitacion" , tipo: "exclusiva" , precio: "$USD 75" },
+    {nombre: "habitacion" , tipo: "plan finlandia" , precio: "$USD 160" },
+    {nombre: "habitacion" , tipo: "plan plus week" , precio: "$USD 600" },
+];
+
+for (const plan of planes) {
+    const card = document.createElement("div")
+    card.className = "card";
+    card.innerHTML =  `
+    <h3>${plan.nombre}</h3>
+    <p>${plan.tipo}</p>
+    <p>${plan.precio}</p>
+    `;
 }
+app.appendChild(card);
 
-const cantidadNombres = Number(
-  prompt ("ingrese la cantidad de usuarios")
-)
-if (!isNaN(cantidadNombres)) {
-  for (let i = 0; i < cantidadNombres; i++) {
-    obtenerDatos();
-  }
-}
+document.getElementById('formulario').addEventListener('submit', function(event) {
+    var nombre = document.getElementById('nombre').value;
+    var sexo = document.querySelector('input[name="sexo"]:checked');
+    var terminos = document.getElementById('terminos').checked;
 
-
-
-
-
-const productos = []
-
-class Producto {
-  constructor( nombre, precio ){
-    this.nombre = nombre.toUpperCase();
-    this.precio = parseFloat(precio);
-    this.id = Math.random(). toString(10).slice(2)
-  }
-
-  cambioDolar(){
-    this.precio = this.precio * 1050;
-  }
-}
-
-productos.push(new Producto("habitacion normal", 25))
-productos.push(new Producto("habitacion premium", 40))
-productos.push(new Producto("habitacion exclusiva", 75))
-productos.push(new Producto("Plan Finlandia", 160))
-productos.push(new Producto("Plan Plus Week", 600))
-
-for (const producto of productos) {
-  producto.cambioDolar()
-}
-
-console.log (productos)
-
+    if (!nombre) {
+        alert('Por favor, ingrese su nombre.');
+        event.preventDefault();
+    } else if (!sexo) {
+        alert('Por favor, seleccione su sexo.');
+        event.preventDefault();
+    } else if (!terminos) {
+        alert('Debe aceptar los Términos y Condiciones.');
+        event.preventDefault();
+    }
+});

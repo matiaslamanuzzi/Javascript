@@ -1,39 +1,73 @@
-
-
-const app = document.getElementById("planes")
-
-const planes = [
-    {nombre: "habitacion" , tipo: "normal" , precio: "$USD 25" },
-    {nombre: "habitacion" , tipo: "premium" , precio: "$USD 40" },
-    {nombre: "habitacion" , tipo: "exclusiva" , precio: "$USD 75" },
-    {nombre: "habitacion" , tipo: "plan finlandia" , precio: "$USD 160" },
-    {nombre: "habitacion" , tipo: "plan plus week" , precio: "$USD 600" },
+// Array de habitaciones
+const habitaciones = [
+    {
+        imagen: 'habitacion1.jpg',
+        titulo: 'Habitación Deluxe',
+        descripcion: 'Descripción de la habitación deluxe.'
+    },
+    {
+        imagen: 'habitacion2.jpg',
+        titulo: 'Suite Presidencial',
+        descripcion: 'Descripción de la suite presidencial.'
+    },
+    {
+        imagen: 'habitacion3.jpg',
+        titulo: 'Habitación Estándar',
+        descripcion: 'Descripción de la habitación estándar.'
+    }
 ];
 
-for (const plan of planes) {
-    const card = document.createElement("div")
-    card.className = "card";
-    card.innerHTML =  `
-    <h3>${plan.nombre}</h3>
-    <p>${plan.tipo}</p>
-    <p>${plan.precio}</p>
-    `;
+// Función para generar habitaciones en el DOM
+function generarHabitaciones() {
+    const contenedor = document.getElementById('habitacionesContainer');
+    habitaciones.forEach(habitacion => {
+        const divHabitacion = document.createElement('div');
+        divHabitacion.className = 'habitacion';
+        
+        const img = document.createElement('img');
+        img.src = habitacion.imagen;
+        img.alt = habitacion.titulo;
+        
+        const h3 = document.createElement('h3');
+        h3.textContent = habitacion.titulo;
+        
+        const p = document.createElement('p');
+        p.textContent = habitacion.descripcion;
+        
+        divHabitacion.appendChild(img);
+        divHabitacion.appendChild(h3);
+        divHabitacion.appendChild(p);
+        
+        contenedor.appendChild(divHabitacion);
+    });
 }
-app.appendChild(card);
 
-document.getElementById('formulario').addEventListener('submit', function(event) {
-    var nombre = document.getElementById('nombre').value;
-    var sexo = document.querySelector('input[name="sexo"]:checked');
-    var terminos = document.getElementById('terminos').checked;
+// Llamar a la función para generar habitaciones al cargar la página
+window.onload = generarHabitaciones;
 
-    if (!nombre) {
-        alert('Por favor, ingrese su nombre.');
-        event.preventDefault();
-    } else if (!sexo) {
-        alert('Por favor, seleccione su sexo.');
-        event.preventDefault();
-    } else if (!terminos) {
-        alert('Debe aceptar los Términos y Condiciones.');
-        event.preventDefault();
-    }
+function mostrarAlerta() {
+    alert("Gracias por su interés! Por favor, contáctenos para más detalles.");
+}
+
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    alert("Su mensaje ha sido enviado. Nos pondremos en contacto con usted pronto.");
 });
+
+const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 1500,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
+  Toast.fire({
+    icon: "success",
+    title: "Loading"
+  });
+
+  

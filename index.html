@@ -3,46 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel Chocolat </title>
+    <title>Hotel de Lujo</title>
 
 </head>
 
 <body>
-    <script src="main.js"></script>
     <link rel="stylesheet" href="styles.css">
-       
-        <div id="app">
-            <h1 id="title">Hotel Chocolat</h1>
-            <p id="descripcion">El Hotel Chocolat está situado a pocos metros de la avenida 9 de Julio y a 300 metros del Obelisco, y ofrece habitaciones cómodas y fácil acceso al transporte público de Buenos Aires. Hay WiFi gratuita. La plaza de Mayo y la Casa Rosada se hallan   a   500 metros. 
-            Las encantadoras habitaciones del Gran Hotel Argentino cuentan con instalaciones modernas, como aire acondicionado, TV por cable y caja fuerte. Algunas habitaciones tienen vistas de la ciudad.
-            Se proporciona servicio de habitaciones las 24 horas. El establecimiento puede organizar un servicio de enlace con el aeropuerto.
-            El Gran Hotel Argentino se encuentra a 500 metros de la calle peatonal Florida y a 800 metros del teatro Colón. El aeropuerto Jorge Newbery queda a 6,4 km.
-            </p>
+
+    <header>
+        <h1>Hotel de Lujo</h1>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#habitaciones">Habitaciones</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio">
+        <h2>Bienvenidos a Hotel de Lujo</h2>
+        <p>Disfruta de una estancia inolvidable con nosotros.</p>
+        <button onclick="mostrarAlerta()">Reserva Ahora</button>
+    </section>
+
+    <section id="habitaciones">
+        <h2>Nuestras Habitaciones</h2>
+        <div id="habitacionesContainer">
+            <!-- Contenido generado dinámicamente -->
         </div>
+    </section>
 
-        <div id="planes"></div>
+    <section id="servicios">
+        <h2>Servicios</h2>
+        <ul>
+            <li>Spa y bienestar</li>
+            <li>Restaurante gourmet</li>
+            <li>Piscina infinita</li>
+            <li>Servicio de habitaciones 24 horas</li>
+        </ul>
+    </section>
 
-        <div id="info">
-            <p>Complete el formulario para notificarnos la reserva solicitada.</p>
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <form id="contactForm">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
             
-            <form id="formulario" action="" name="formulario" method="get">
-                <label for="nombre">Nombre y Apellido:</label>
-                <input type="text" name="nombre" id="nombre" maxlength="30" placeholder="Nombre y Apellido" required>
-        
-                <label>Sexo:</label>
-                <input type="radio" name="sexo" id="hombre" value="hombre" required> 
-                <label for="hombre">Hombre</label>
-                <input type="radio" name="sexo" id="mujer" value="mujer" required> 
-                <label for="mujer">Mujer</label>
-        
-                <input type="checkbox" name="terminos" id="terminos" required>
-                <label for="terminos">Acepto los Términos y Condiciones</label>
-        
-                <input type="submit" name="button" id="button" value="Enviar">
-            </form>
-        </div>
-     
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" required></textarea>
+            
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
 
+    <footer>
+        <p>&copy; 2024 Hotel de Lujo. Todos los derechos reservados.</p>
+    </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="main.js"></script>
 </body>
 </html>
